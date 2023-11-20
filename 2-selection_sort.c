@@ -21,7 +21,6 @@ void selection_sort(int *array, size_t size)
 			if (array[j] < array[min_idx])
 				min_idx = j;
 		}
-		// swap function between index i and j
 		tmp = array[i];
 		array[i] = array[min_idx];
 		array[min_idx] = tmp;
