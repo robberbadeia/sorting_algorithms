@@ -1,15 +1,5 @@
 #include "sort.h"
 /**
- * 
- * 
- * 
- * 
-*/
-void swap (int *min, int *b)
-{
-	printf("min:%ls, bigger:%ls", min, b);
-}
-/**
  * selection_sort - Function
  * @array: array of int
  * @size: int
