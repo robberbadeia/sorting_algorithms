@@ -17,7 +17,7 @@ void swap (int *min, int *b)
 */
 void selection_sort(int *array, size_t size)
 {
-	int i, j, min_idx;
+	int i = 0, j = 0, min_idx = 0;
 	int tmp = 0;
 
 	if (!array || !size)
