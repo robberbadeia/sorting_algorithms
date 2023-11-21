@@ -17,6 +17,7 @@ void swap_elements(int *f, int *s)
  * @array: input
  * @l: input
  * @h: input
+ * @size: input
  * Return: int
 */
 int partition_function(int *array, int l, int h, size_t size)
@@ -46,6 +47,7 @@ int partition_function(int *array, int l, int h, size_t size)
  * @array: input
  * @l: input
  * @h:input
+ * @size: input
  * Return: None
 */
 void sort_quick(int *array, int l, int h, size_t size)
