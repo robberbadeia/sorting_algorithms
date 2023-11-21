@@ -1,18 +1,5 @@
 #include "sort.h"
 /**
- * swap_elements - Function
- * @f: input
- * @s: input
- * Return: None
-*/
-void swap_elements(int *f, int *s)
-{
-	int tmp = *f;
-	*f = *s;
-	*s = tmp;
-}
-
-/**
  * partition_function - Function
  * @array: input
  * @l: input
@@ -22,24 +9,29 @@ void swap_elements(int *f, int *s)
 */
 int partition_function(int *array, int l, int h, size_t size)
 {
+	int tmp = 0;
 	int p = array[h];
-	int i = l - 1;
+	int i = l;
 	int j;
 
-	for (j = l; j <= h - 1; j++)
+	for (j = l; j < h; j++)
 	{
 		if (array[j] < p)
 		{
-			i++;
-			swap_elements(&array[i], &array[j]);
+			tmp = array[i];
+			array[i] = array[j];
+			array[j] = tmp;
 			if (array[i] != array[j])
 				print_array(array, size);
+			i++;
 		}
 	}
-	swap_elements(&array[i + 1], &array[h]);
+	tmp = array[i];
+	array[i] = array[h];
+	array[h] = tmp;
 	if (array[i] != array[h])
 		print_array(array, size);
-	return (i + 1);
+	return (i);
 }
 
 /**
