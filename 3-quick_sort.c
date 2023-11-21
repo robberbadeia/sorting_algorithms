@@ -19,7 +19,7 @@ void swap_elements(int *f, int *s)
  * @h: input
  * Return: int
 */
-int partition_function(int *array, int l, int h)
+int partition_function(int *array, int l, int h, size_t size)
 {
 	int p = array[h];
 	int i = l - 1;
@@ -31,9 +31,13 @@ int partition_function(int *array, int l, int h)
 		{
 			i++;
 			swap_elements(&array[i], &array[j]);
+			if (array[i] != array[j])
+				print_array(array, size);
 		}
 	}
 	swap_elements(&array[i + 1], &array[h]);
+	if (array[i] != array[j])
+		print_array(array, size);
 	return (i + 1);
 }
 
@@ -44,15 +48,15 @@ int partition_function(int *array, int l, int h)
  * @h:input
  * Return: None
 */
-void sort_quick(int *array, int l, int h)
+void sort_quick(int *array, int l, int h, size_t size)
 {
 	int p_index = 0;
 
 	if (l < h)
 	{
-		p_index = partition_function(array, l, h);
-		sort_quick(array, l, (p_index - 1));
-		sort_quick(array, (p_index + 1), h);
+		p_index = partition_function(array, l, h, size);
+		sort_quick(array, l, (p_index - 1), size);
+		sort_quick(array, (p_index + 1), h, size);
 	}
 }
 
@@ -70,5 +74,5 @@ void quick_sort(int *array, size_t size)
 	if (!array || !size)
 		return;
 
-	sort_quick(array, l, h);
+	sort_quick(array, l, h, size);
 }
