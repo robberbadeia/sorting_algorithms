@@ -36,7 +36,7 @@ int partition_function(int *array, int l, int h, size_t size)
 		}
 	}
 	swap_elements(&array[i + 1], &array[h]);
-	if (array[i] != array[j])
+	if (array[i] != array[h])
 		print_array(array, size);
 	return (i + 1);
 }
